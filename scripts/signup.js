@@ -1,10 +1,10 @@
 
-function homePage(){
-    window.location.href = '/HOME/index.html';
+function submit(){
+    window.location.href = '/html/index.html';
 }
 
 function signinPage(){
-    window.location.href = '/SIGN-IN/signin.html';
+    window.location.href = '/html/signin.html';
 }
  
 // button functionning

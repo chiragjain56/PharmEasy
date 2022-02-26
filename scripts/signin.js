@@ -1,9 +1,9 @@
 function signupPage(){
-    window.location.href = '/SIGN-UP/signup.html';
+    window.location.href = '/html/signup.html';
 }
 
 function homePage(){
-    window.location.href = '/HOME/index.html';
+    window.location.href = '/html/index.html';
 } 
 
 // login validation

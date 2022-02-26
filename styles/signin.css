@@ -13,7 +13,7 @@
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 25px;
+    margin: 25px 0px;
 }
 img{
     margin: 15px 90px 15px ;
@@ -128,7 +128,8 @@ button{
 }
 .signInBtn{
     margin: 10px 0 0 0;
-    background-color: #f0c24e;
+    background-color: rgb(8, 146, 68);
+    color: white;
     font-size: 13px;
     line-height: 19px;
     border: 1px solid ;
