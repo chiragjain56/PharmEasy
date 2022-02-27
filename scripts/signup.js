@@ -1,6 +1,6 @@
 
 function submit(){
-    window.location.href = '/html/index.html';
+    window.location.href = '/html/signin.html';
 }
 
 function signinPage(){
@@ -53,7 +53,7 @@ createAccBtn.addEventListener('click',function(){
             loginInfo.push(obj);
             localStorage.setItem('loginInfo',JSON.stringify(loginInfo));
             alert('Account created Successfully');
-            window.location.href = '/SIGN-IN/signin.html';
+            window.location.href = '/html/signin.html';
             name.value = '';
             email.value = '';
             password.value = '';

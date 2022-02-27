@@ -32,7 +32,7 @@ document.querySelector('.loginBtn').addEventListener('click',function(){
                 check = true;
                 alert('Signed in successfully')
                 localStorage.setItem('userName',JSON.stringify(elem.name));
-                window.location.href = '/HomeAfterSignin/home.html';
+                window.location.href = '/html/index.html';
             }else{
                 if(flag !== 1){
                     check = false;
