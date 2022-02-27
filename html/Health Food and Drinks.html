@@ -8,7 +8,7 @@
     <title>Document</title>
     <style>
         h1 {
-            margin-left: 100px;
+            /* margin-left: 100px; */
             border-bottom: 1px solid rgba(187, 178, 178, .4);
         }
 
@@ -53,11 +53,24 @@
             cursor: pointer;
             background-color: rgb(13, 241, 13);
         }
+
+         #name_div{
+            display: flex;
+        }
+        #name_div #cartbutton{
+            margin-left: 860px;
+            position: fixed;
+            margin-top: 25px;
+        }
     </style>
 </head>
 
 <body>
-    <h1>Health Food and Drinks</h1>
+    <div id="name_div">
+        <h1>Health Food and Drinks</h1>
+        <a href="/html/cart.html"><button id="cartbutton">Cart</button></a>
+    </div>
+
     <div id="container">
 
     </div>
@@ -144,24 +157,49 @@
 
 
 
-    Health_Food_and_Drinks.map(function (el) {
+    mycartarr = JSON.parse(localStorage.getItem("CART")) || [];
+    displayhelathfooditems()
 
-        let maindiv = document.createElement("div");
+    function displayhelathfooditems() {
 
-        let imgdiv = document.createElement("img");
-        imgdiv.src = el.image;
+        Health_Food_and_Drinks.map(function (el) {
 
-        let titlediv = document.createElement("p");
-        titlediv.textContent = el.title
+            let maindiv = document.createElement("div");
 
-        let price = document.createElement("p");
-        price.textContent = `₹ ${el.price}`;
+            let imgdiv = document.createElement("img");
+            imgdiv.src = el.image;
 
-        let btn = document.createElement("button");
-        btn.textContent = "Add Cart"
+            let titlediv = document.createElement("p");
+            titlediv.textContent = el.title
 
-        maindiv.append(imgdiv, titlediv, price, btn);
-        document.querySelector("#container").append(maindiv);
+            let price = document.createElement("p");
+            price.textContent = `₹ ${el.price}`;
 
-    })
+            let btn = document.createElement("button");
+            btn.textContent = "Add Cart";
+            btn.addEventListener("click", function () {
+                addbtn(el)
+            })
+
+
+            maindiv.append(imgdiv, titlediv, price, btn);
+            document.querySelector("#container").append(maindiv);
+
+        })
+
+
+    }
+
+    function addbtn(el) {
+
+        console.log(el);
+        mycartarr.push(el)
+        localStorage.setItem("CART", JSON.stringify(mycartarr));
+        alert("added in Cart");
+        displayhelathfooditems();
+
+    }
+
+
+
 </script>

@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>        
-        h1{
-            margin-left: 100px;
+    <style>
+        h1 {
+            /* margin-left: 100px; */
             border-bottom: 1px solid rgba(187, 178, 178, .4);
         }
+
         #container {
             width: 85%;
             display: grid;
@@ -30,12 +31,14 @@
             grid-template-rows: 200px, 60px 20px 50px;
             border-radius: 8px;
         }
-        #container img{
+
+        #container img {
             width: 90%;
             height: 200px;
 
         }
-        button{
+
+        button {
             width: 100px;
             height: 35px;
             padding: 5px 10px;
@@ -45,15 +48,27 @@
             background-color: teal;
             color: white;
         }
-        button:hover{
+
+        button:hover {
             cursor: pointer;
             background-color: rgb(13, 241, 13);
+        }
+        #name_div{
+            display: flex;
+        }
+        #name_div #cartbutton{
+            margin-left: 970px;
+            position: fixed;
+            margin-top: 25px;
         }
     </style>
 </head>
 
 <body>
-    <h1>Covid Essentials</h1>
+    <div id="name_div">
+        <h1>Covid Essentials</h1>
+        <a href="/html/cart.html"><button id="cartbutton">Cart</button></a>        
+    </div>
     <div id="container">
 
     </div>
@@ -61,6 +76,8 @@
 
 </html>
 <script>
+
+
 
     Covid_Essentials_data = [
 
@@ -138,26 +155,52 @@
 
     ]
 
-    Covid_Essentials_data.map(function (el) {
 
-        let maindiv = document.createElement("div");
+    mycartarr = JSON.parse(localStorage.getItem("CART")) ||  [];
+    // mycartarr = [];
+    displaycoviditems()
 
-        let imgdiv = document.createElement("img");
-        imgdiv.src = el.image;
 
-        let titlediv = document.createElement("p");
-        titlediv.textContent = el.title
+    function displaycoviditems() {
 
-        let price = document.createElement("p");
-        price.textContent = `₹ ${el.price}`;
+        Covid_Essentials_data.map(function (el) {
 
-        let btn = document.createElement("button");
-        btn.textContent = "Add Cart"
+            let maindiv = document.createElement("div");
 
-        maindiv.append(imgdiv, titlediv, price, btn);
-        document.querySelector("#container").append(maindiv);
+            let imgdiv = document.createElement("img");
+            imgdiv.src = el.image;
 
-    })
+            let titlediv = document.createElement("p");
+            titlediv.textContent = el.title
+
+            let price = document.createElement("p");
+            price.textContent = `₹ ${el.price}`;
+
+            let btn = document.createElement("button");
+            btn.textContent = "Add Cart";
+            btn.addEventListener("click", function () {
+                addbtn(el)
+            })
+
+            maindiv.append(imgdiv, titlediv, price, btn);
+            document.querySelector("#container").append(maindiv);
+
+        })
+
+
+
+    }
+
+    function addbtn(el){
+
+        console.log(el);
+         console.log(typeof el.price)
+        mycartarr.push(el)
+        localStorage.setItem("CART", JSON.stringify(mycartarr));
+        alert("added in Cart");
+        displaycoviditems();
+
+    }
 
 
 </script>

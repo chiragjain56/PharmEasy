@@ -11,7 +11,7 @@
             margin-left: 100px;
             border-bottom: 1px solid rgba(187, 178, 178, .4);
         }
-    
+
         #container {
             width: 85%;
             display: grid;
@@ -21,7 +21,7 @@
             justify-content: space-around;
             margin: auto;
         }
-    
+
         #container>div {
             border: 1px solid gray;
             text-align: center;
@@ -31,13 +31,13 @@
             grid-template-rows: 200px, 60px 20px 50px;
             border-radius: 8px;
         }
-    
+
         #container img {
             width: 90%;
             height: 200px;
-    
+
         }
-    
+
         button {
             width: 100px;
             height: 35px;
@@ -48,16 +48,30 @@
             background-color: teal;
             color: white;
         }
-    
+
         button:hover {
             cursor: pointer;
             background-color: rgb(13, 241, 13);
+        }
+
+        #name_div {
+            display: flex;
+        }
+
+        #name_div #cartbutton {
+            margin-left: 850px;
+            position: fixed;
+            margin-top: 25px;
         }
     </style>
 </head>
 
 <body>
-    <h1>Healthcare Devices</h1>
+    <div id="name_div">
+        <h1>Healthcare Devices</h1>
+        <a href="/html/cart.html"><button id="cartbutton">Cart</button></a>
+    </div>
+
     <div id="container">
 
     </div>
@@ -144,24 +158,90 @@
     ]
 
 
-    Healthcare_Devices_data.map(function (el) {
+    // mycartarr = JSON.parse(localStorage.getItem("CART")) || [];
+    // displayhealthcaredeviceitems()
 
-        let maindiv = document.createElement("div");
+    // function displayhealthcaredeviceitems() {
 
-        let imgdiv = document.createElement("img");
-        imgdiv.src = el.image;
+    //     Healthcare_Devices_data.map(function (el) {
 
-        let titlediv = document.createElement("p");
-        titlediv.textContent = el.title
+    //         let maindiv = document.createElement("div");
 
-        let price = document.createElement("p");
-        price.textContent = `₹ ${el.price}`;
+    //         let imgdiv = document.createElement("img");
+    //         imgdiv.src = el.image;
 
-        let btn = document.createElement("button");
-        btn.textContent = "Add Cart"
+    //         let titlediv = document.createElement("p");
+    //         titlediv.textContent = el.title
 
-        maindiv.append(imgdiv, titlediv, price, btn);
-        document.querySelector("#container").append(maindiv);
+    //         let price = document.createElement("p");
+    //         price.textContent = `₹ ${el.price}`;
 
-    })
+    //         let btn = document.createElement("button");
+    //         btn.textContent = "Add Cart";
+    //         btn.addEventListener("click", function () {
+    //             addbtn(el)
+    //         })
+
+    //         maindiv.append(imgdiv, titlediv, price, btn);
+    //         document.querySelector("#container").append(maindiv);
+
+    //     })
+
+    // }
+
+    // function addbtn(el) {
+
+    //     console.log(el);
+    //     mycartarr.push(el)
+    //     localStorage.setItem("CART", JSON.stringify(mycartarr));
+    //     alert("added in Cart");
+    //     displayhealthcaredeviceitems();
+
+    // }
+
+    let mycartarr = JSON.parse(localStorage.getItem("CART")) || [];
+    displayhealthcaredeviceitems()
+
+
+    function displayhealthcaredeviceitems() {
+
+        Healthcare_Devices_data.map(function (el) {
+
+            let maindiv = document.createElement("div");
+
+            let imgdiv = document.createElement("img");
+            imgdiv.src = el.image;
+
+            let titlediv = document.createElement("p");
+            titlediv.textContent = el.title
+
+            let price = document.createElement("p");
+            price.textContent = `₹ ${el.price}`;
+
+            let btn = document.createElement("button");
+            btn.textContent = "Add Cart";
+            btn.addEventListener("click", function () {
+                addbtn(el)
+            })
+
+            maindiv.append(imgdiv, titlediv, price, btn);
+            document.querySelector("#container").append(maindiv);
+
+        })
+
+
+
+    }
+
+    function addbtn(el) {
+
+        console.log(el);
+        mycartarr.push(el)
+        localStorage.setItem("CART", JSON.stringify(mycartarr));
+        alert("added in Cart");
+        displayhealthcaredeviceitems();
+
+    }
+
+
 </script>

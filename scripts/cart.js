@@ -1,82 +1,72 @@
-function appendpro(obj) {
-  let data = JSON.parse(localStorage.getItem("cart"));
-  let main_div = document.getElementById("cartcontainer");
-  data.forEach(function (el) {
-    let div = document.createElement("div");
-    //name
-    let pname = document.createElement("p");
-    pname.innerHTML = `${el.name} 
-    <br>
-    <small class="brand">${el.name.split(" ")[0]}<small>
-    <br>
-    <strong>${el.metadata}</strong>
-    `;
-    pname.setAttribute("class", "productname");
-    //pname.style.float="right"
 
-    //image
-    let img = document.createElement("img");
-    img.src = el.img;
+    let cartitem = JSON.parse(localStorage.getItem("CART")) || [];
+    console.log(cartitem);
+    mycartarritems(cartitem)
 
-    //brand
-    let brand = document.createElement("p");
-    brand.innerHTML = `<small>${el.name.split(" ")[0]}<small>`;
-    brand.setAttribute("class", "brand");
 
-    //button
+    function mycartarritems(cartitem) {
+        
+        document.querySelector("#cartitemdiv").innerHTML = null;
 
-    let btn = document.createElement("p");
-    btn.innerHTML = "🗑";
-    btn.setAttribute("class", "del");
-    btn.addEventListener("click", function () {
-      removep(obj);
-    });
+        cartitem.map(function (el, index) {
 
-    div.append(img, btn, pname);
-    main_div.append(div);
-  });
-}
-appendpro();
+            let maindiv = document.createElement("div");
 
-//set billing information
-let submit = document
-  .getElementById("payment")
-  .addEventListener("click", function () {
-    let name = document.getElementById("name").value;
-    let street = document.getElementById("street").value;
-    let pin = document.getElementById("pin").value;
-    let state = document.getElementById("state").value;
-    let data = {
-      name,
-      street,
-      state,
-      pin,
-    };
+            let imgdiv = document.createElement("img");
+            imgdiv.src = el.image;
 
-    if (localStorage.getItem("userchekout") == null) {
-      localStorage.setItem("userchekout", JSON.stringify(data));
+            let titlediv = document.createElement("p");
+            titlediv.textContent = el.title
+
+            let price = document.createElement("p");
+            price.textContent = `₹ ${el.price}`;
+
+            let btn = document.createElement("button");
+            btn.textContent = "Remove";
+            btn.addEventListener("click", function () {
+                deletebtn(index)
+            })
+
+            maindiv.append(imgdiv, titlediv, price, btn);
+            document.querySelector("#cartitemdiv").append(maindiv);
+
+        })
+
+        total()
+
     }
-    window.location.href = "payment.html";
-  });
 
-function cartsum() {
-  let data = JSON.parse(localStorage.getItem("cart"));
-  let sum = 0;
-  for (let i = 0; i < data.length; i++) {
-    sum += Number(data[i].price);
-  }
-  document.getElementById("ammount").innerHTML = "Cart Value  : ₹  " + sum;
-}
-cartsum();
+    function deletebtn(index) {
 
-function removep(el) {
-  let arr = [];
-  let data = JSON.parse(localStorage.getItem("cart"));
-  for (var i = 0; i < data.length; i++) {
-    if (data[i].name === el.name) {
-      data.splice(0, 1);
-      appendpro(data);
+        cartitem.splice(index, 1)
+        localStorage.setItem("CART", JSON.stringify(cartitem));
+        mycartarritems(cartitem);
+
     }
-  }
-}
-removep();
+
+    function total() {
+
+        let total = 0;
+        for (var i = 0; i < cartitem.length; i++) {
+            total += +cartitem[i].price;
+        }
+        console.log(total);
+
+        cartlength_div = document.querySelector("#cartlengthspan");
+        cartlength_div.textContent = cartitem.length+"  item";
+
+        cartamount_div = document.querySelector("#cartAmountspan");
+        cartamount_div.textContent = "₹  "+total;
+
+        console.log("--->", total, cartitem.length)
+
+
+        // let lenght = cartitem.lenght;
+        // console.log("length is", length)
+
+    }
+
+    document.querySelector("#checkbtn").addEventListener("click", function(){
+
+        window.location.href = "address.html";
+    })
