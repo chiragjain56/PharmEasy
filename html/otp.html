@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTPpage</title>
+    <link rel="stylesheet" href="/styles/navbar.css">
     
     <link rel="stylesheet" href="/styles/otp.css">
     <style>
@@ -13,6 +14,7 @@
 </head>
 
 <body>
+    <div id="navbaradd"></div>
     <div id="container">
 
         <div id="otg">
@@ -34,4 +36,11 @@
     function otpfun(){
         alert("Thanks For Purchase")
     }
+</script>
+<script type="module">
+
+    import navbar from "/scripts/navbar.js";
+    let navbar_div = document.querySelector("#navbaradd")
+    navbar_div.innerHTML = navbar();
+
 </script>

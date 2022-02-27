@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/styles/labtest.css">
     <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/navbar.css">
 </head>
 
 <style>
@@ -17,6 +18,7 @@
 </style>
 
 <body>
+    <div id="navbaradd"></div>
     <div id="container">
         <div id="img">
             <!-- <div id="show"></div> -->
@@ -221,5 +223,12 @@
     console.log(footer)
     let labfooter_div = document.querySelector("#labfooter");
     labfooter_div.innerHTML = footer();
+
+</script>
+<script type="module">
+
+    import navbar from "/scripts/navbar.js";
+    let navbar_div = document.querySelector("#navbaradd")
+    navbar_div.innerHTML = navbar();
 
 </script>

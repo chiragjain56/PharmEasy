@@ -11,13 +11,14 @@
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
         <link rel="stylesheet" href="/styles/footer.css">
         <link rel="stylesheet" href="/styles/reviewslider.css">
+        <link rel="stylesheet" href="/styles/navbar.css">
         <style>
 
 
         </style>
     </head>
 
-    <body>
+    <body><div id="navbar"></div>
         <div id="container">
             <p><a href="https://pharmeasy.in/">Home</a> > <span>Order Medicine Online</span></p>
             <h1>Order Medicines Online</h1>
@@ -397,5 +398,12 @@
     import footer from "/scripts/footer.js";
     let footer_div = document.querySelector("#allfooterdata");
     footer_div.innerHTML = footer();
+
+</script>
+<script type="module">
+
+    import navbar from "/scripts/navbar.js";
+    let navbar_div = document.querySelector("#navbaradd")
+    navbar_div.innerHTML = navbar();
 
 </script>

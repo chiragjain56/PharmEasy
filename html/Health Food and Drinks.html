@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/styles/navbar.css">
     <style>
         h1 {
             /* margin-left: 100px; */
@@ -65,7 +66,8 @@
     </style>
 </head>
 
-<body>
+<body>\
+    <div id="navbaradd"></div>
     <div id="name_div">
         <h1>Health Food and Drinks</h1>
         <a href="/html/cart.html"><button id="cartbutton">Cart</button></a>
@@ -201,5 +203,12 @@
     }
 
 
+
+</script>
+<script type="module">
+
+    import navbar from "/scripts/navbar.js";
+    let navbar_div = document.querySelector("#navbaradd")
+    navbar_div.innerHTML = navbar();
 
 </script>

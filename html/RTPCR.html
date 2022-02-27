@@ -7,9 +7,13 @@
     <title>RTPCR</title>
     <link rel="stylesheet" href="/styles/RTPCR.css">
     <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/navbar.css">
 </head>
 
 <body>
+    <div id="navbaradd">
+
+    </div>
     <div id="container">
         <div id="box1">
             <div id="test"><h2 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Test Details</h2>
@@ -87,5 +91,12 @@
     console.log(footer)
     let RTPCRfooter_div = document.querySelector("#RTPCRfooter");
     RTPCRfooter_div.innerHTML = footer();
+
+</script>
+<script type="module">
+
+    import navbar from "/scripts/navbar.js";
+    let navbar_div = document.querySelector("#navbaradd")
+    navbar_div.innerHTML = navbar();
 
 </script>

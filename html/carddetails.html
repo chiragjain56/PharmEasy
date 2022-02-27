@@ -7,9 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/styles/carddetails.css">
+    <link rel="stylesheet" href="/styles/navbar.css">
 </head>
 
 <body>
+    <div id="navbaradd">
+
+    </div>
     <div id="container">
 
 
@@ -47,5 +51,12 @@
         console.log("this is file")
         window.location.href = "/html/otp.html"
     }
+
+</script>
+<script type="module">
+
+    import navbar from "/scripts/navbar.js";
+    let navbar_div = document.querySelector("#navbaradd")
+    navbar_div.innerHTML = navbar();
 
 </script>

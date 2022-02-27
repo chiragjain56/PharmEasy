@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="/styles/footer.css">
     <link rel="stylesheet" href="/styles/healthslider.css">
     <link rel="stylesheet" href="/styles/healthcaredata.css">   
+    <link rel="stylesheet" href="/styles/navbar.css">
 </head>
 
 <body>
+    <div id="navbaradd"></div>
     <div id="slider">
 
     </div>
@@ -264,5 +266,12 @@
 
     }
 
+
+</script>
+<script type="module">
+
+    import navbar from "/scripts/navbar.js";
+    let navbar_div = document.querySelector("#navbaradd")
+    navbar_div.innerHTML = navbar();
 
 </script>

@@ -9,8 +9,10 @@
     <script src="https://kit.fontawesome.com/ea67fa5627.js" crossorigin="anonymous"></script>
     <link rel="icon" href="https://freeiconshop.com/wp-content/uploads/edd/play-rounded-flat.png"
     type="x-icon" style="border-radius: 50%;">
+    <link rel="stylesheet" href="/styles/navbar.css">
 </head>
 <body>
+    <div id="navbaradd"></div>
     <div id="container">
       
         <header class='errorBox'>
@@ -93,4 +95,11 @@
 </body>
 </html>
 <script src="/scripts/signup.js"></script>
+<script type="module">
+
+    import navbar from "/scripts/navbar.js";
+    let navbar_div = document.querySelector("#navbaradd")
+    navbar_div.innerHTML = navbar();
+
+</script>
 

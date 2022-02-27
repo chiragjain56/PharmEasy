@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>payment</title>
     <link rel="stylesheet" href="/styles/payment.css">
+    <link rel="stylesheet" href="/styles/navbar.css">
 
 </head>
 
 <body>
+    <div id="navbaradd"></div>
     <div id="container">
         <h1 style="margin:20px 0px -5px 50px;">Payment</h1>
         <hr>
@@ -75,5 +77,12 @@
 
         event.target.style.color = "rgb(11, 72, 185)"
     }
+
+</script>
+<script type="module">
+
+    import navbar from "/scripts/navbar.js";
+    let navbar_div = document.querySelector("#navbaradd")
+    navbar_div.innerHTML = navbar();
 
 </script>

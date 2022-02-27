@@ -3,7 +3,7 @@
 }
 
 #cartitemdiv {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 65%;
   height: auto;
   display: grid;
@@ -16,7 +16,7 @@
 
 #cartitemdiv > div {
   text-align: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 10px;
 }
 
@@ -40,9 +40,9 @@
 }
 
 #billingDetails {
-  width: 30%;
+  width: 25%;
   height: 400px;
-  border: 1px solid teal;
+  /* border: 1px solid teal; */
   background-color: rgb(224, 224, 217);
   margin-left: 5%;
   text-align: center;

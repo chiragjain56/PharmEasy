@@ -7,13 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Address</title>
     <link rel="stylesheet" href="/styles/address.css">
+    <link rel="stylesheet" href="/styles/navbar.css">
     <style>
         
     </style>
 </head>
 
 <body>
+    <div id="navbaradd">
+
+    </div>
     <div id="container">
+        
 
         <h1 style="margin-left: 50px; margin-bottom: -5px;
         margin-top: 50px;">Address</h1><hr>
@@ -62,5 +67,12 @@
         window.location.href = "/html/payment.html"
     }
 
+
+</script>
+<script type="module">
+
+    import navbar from "/scripts/navbar.js";
+    let navbar_div = document.querySelector("#navbaradd")
+    navbar_div.innerHTML = navbar();
 
 </script>
