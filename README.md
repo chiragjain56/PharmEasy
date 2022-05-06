@@ -5,3 +5,4 @@ PharmEasy offers 1 lakh+ medicines and health products across various categories
 You can simply place an order on our website/app and we will deliver your online medicine order in as low as 4 hours.
 
 
+![alt text]https://pharmeasy.in/
